@@ -2,15 +2,15 @@ import threading
 import time
 
 #number of docs
-#n = 11000
 n = 21000
+#n = 21000
 #length of feature vector
 s_n = 2974
 
 #value of k
 k=10
 
-
+print "loading the feature vector in memory"
 time1 = time.time()
 #loading feature vector
 s= []
@@ -18,11 +18,7 @@ filename = 'feature_matrix.pytext'
 
 i=0
 for line in open(filename):
-    #print i
     record = eval(line)
-    #if i%100 == 0:
-    # print i
-
     temp = map(int, list(record['feature_vector']))
     s.append(temp)
     
@@ -34,22 +30,11 @@ for line in open(filename):
 def h(x,i):
   return (i*x + i*2 ) % s_n
 
-
-
 sigs = []
 documents = []
 
 for i in range(0, n):
-  #temp =[]
-  #for x in range (0,k):
-  #  temp.append(minhash(x, i))
-  
-  #print "Signature of document", i+1, ":", temp
-  #print "Signature of document", i+1, ":", minhash(0, i), minhash(1, i), minhash(2, i),minhash(3, i),minhash(4, i),minhash(5, i)
-  #sigs.append([minhash(0, i), minhash(1, i), minhash(2, i),minhash(3, i),minhash(4, i),minhash(5, i)])
-  #sigs.append(temp)
 
-  # also build s as sets
   documents.append(set())
   for jj in range(0, s_n -1):
     if s[i][jj] == 1:
@@ -65,6 +50,7 @@ def jaccard (a, b):
 
 out = [[0 for x in range(n)] for x in range(n)] 
 
+print "Finding the jaccard similarity and saving in file jaccard_dist2.pytext"
 file_name = open('jaccard_dist2.pytext', 'w')
 for ii in range(0, n):
   print ii

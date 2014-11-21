@@ -2,7 +2,7 @@ import threading
 import time
 
 #number of docs
-n = 11000
+n = 21000
 
 #length of feature vector
 s_n = 2974
@@ -54,11 +54,12 @@ documents = []
 
 sig_time = time.time()
 
+print "calculating Signature of Docs"
 for i in range(0, n):
   temp =[]
   for x in range (0,k):
     temp.append(minhash(x, i))
-  print "Signature of doc: ", i+1, ":", temp
+  #print "Signature of doc: ", i+1, ":", temp
   sigs.append(temp)
   documents.append(set())
   for jj in range(0, s_n):
@@ -86,6 +87,7 @@ def jaccard_estimate (a, b):
 
 #uncomment these lines to load from the jaccard similarity file
 
+
 print "loading the jaccard similarity from file"
 out = [[0 for x in range(n)] for x in range(n)] 
 
@@ -103,7 +105,6 @@ for line in open(file_name):
    # orig = jaccard(documents[ii], documents[i])
   if ii >= n-1:
     break
-
 
 
 #print out
