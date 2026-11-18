@@ -1,7 +1,10 @@
 Data Mining Project for CSE OSU CLass
 ===========
+
+This Ohio State data-mining exercise compares exact Jaccard similarity with MinHash estimates across multiple signature sizes. The original `code5` and `report5` folders contain the implementation and write-up.
+
 By
-Shashank Agarwal (agarwal.202@osu.edu)
+[Shashank Agarwal](https://www.linkedin.com/in/shashankagarwal2/) (agarwal.202@osu.edu)
 Anurag Kalra (kalra.25@osu.edu)
 
 all code is in the code5 folder and reports are in the report5 folder in pdf and docx format
